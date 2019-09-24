@@ -21,7 +21,12 @@
                     <li class="nav-item">
                         <a href="{% url 'index' %}" class="nav-link">Home</a>
                     </li>
-                    {% block menu %}{% endblock %}
+                    <li>
+                        <a href="{% url 'product_create' %}" class="nav-link">Add new Product</a>
+                    </li>
+                    {% block menu %}
+
+                    {% endblock %}
                 </ul>
             </div>
         </nav>
