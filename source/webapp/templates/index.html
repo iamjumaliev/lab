@@ -18,6 +18,9 @@
                         </h2>
                         <p class="card-text">{{ product.get_category_display }}</p>
                         <p class="card-text text-right">{{ product.price }} сом</p>
+                        <li>
+                            <a href="{% url 'product_delete' product.pk %}" class="delete">Delete Product</a>
+                        </li>
                     </div>
                 </div>
             </div>
