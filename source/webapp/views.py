@@ -4,7 +4,7 @@ from webapp.forms import SearchForm, ProductForm
 
 
 def index_view(request):
-    products = Product.objects.filter(amount__gt=0).order_by('category','name')
+    products = Product.objects.filter(amount__gt=0).order_by('category')
     form = SearchForm()
     return render(request, 'index.html', context={
         'products': products,
