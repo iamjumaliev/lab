@@ -1,5 +1,18 @@
 {% extends 'base.html' %}
 {% block menu %}
+    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                id="dropdownMenuButton" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    Categories
+                        </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                {% for cat in category %}
+                                <a class="dropdown-item" href="{% url 'categories' cat.0 %}">
+                                    {{cat.1}}</a>
+                                {% endfor %}
+                            </div>
+                    </div>
     <form method="GET" class="my_search" action="{% url 'product_search' %}">
        {% csrf_token %}
        {{ form.search_name }}

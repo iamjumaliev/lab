@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from webapp.models import Product
+from webapp.models import Product, PRODUCT_CATEGORY_CHOICES
 from webapp.forms import SearchForm, ProductForm
 
 
@@ -8,7 +8,8 @@ def index_view(request):
     form = SearchForm()
     return render(request, 'index.html', context={
         'products': products,
-        'form': form
+        'form': form,
+        'category': PRODUCT_CATEGORY_CHOICES
     })
 
 
@@ -115,5 +116,21 @@ def product_update_view(request, pk):
 
             else:
 
-                return render(request, 'update.html', context={'form': form, 'book': book})
+                return render(request, 'update.html', context={'form': form, 'product': product})
+
+
+
+
+def category_view(request,category):
+    products =  Product.objects.filter(category=category).order_by('category')
+    form = SearchForm()
+    return render(request, 'index.html', context={
+        'products': products,
+        'category': PRODUCT_CATEGORY_CHOICES,
+        'form': form
+
+    })
+
+
+
 # Create your views here.

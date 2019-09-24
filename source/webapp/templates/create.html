@@ -8,6 +8,7 @@
    <form method="POST" action="{% url "product_create" %}">
 
        {% csrf_token %}
+
              {% include 'partial/form.html' with button_text="Create" %}
 
    </form>
