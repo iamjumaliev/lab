@@ -3,11 +3,11 @@
 {% block title %}Delete Product{% endblock %}
 
 {% block menu %}
-
 {% endblock %}
 
 {% block content %}
-    <h1>Are you sure want to delete product "{{ product }}"?</h1>
+    <h1>Are you sure want to delete product <a href="{% url 'product_detail' product.pk %}">{{ product.name }}</a>?
+    </h1>
     <form method="POST" action="{% url 'product_delete' product.pk %}" class="text-center">
         {% csrf_token %}
         <p><input type="submit" class = 'btn' value="Confirm"></p>

@@ -3,11 +3,10 @@
 {% block title %}Update Product{% endblock %}
 
 {% block menu %}
-    <li><a href="{% url 'index'  %}">Home</a></li>
 {% endblock %}
 
 {% block content %}
-    <h1>Update Product</h1>
+    <h1>Update Product <a href="{% url 'product_detail' product.pk %}">{{ product.name }}</a></h1>
     <form method="POST" action="{% url 'product_update' product.pk %}">
         {% include 'partial/form.html' with button_text="Update" %}
     </form>
